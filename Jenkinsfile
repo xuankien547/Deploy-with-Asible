@@ -8,8 +8,8 @@ pipeline{
         }
         stage('Buid docker file'){
             steps {
-                    sh 'docker build -t nginx -f Dockerfile.nginx'
-                    sh 'docker build -t php -f Dockerfile.php'
+                    sh 'docker build -f ./Dockerfile.nginx -t nginx:v1 .'
+                    sh 'docker build -f ./Dockerfile.php -t php:v1 .'
                 }
                 
             }

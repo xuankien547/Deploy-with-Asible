@@ -21,8 +21,8 @@ pipeline{
             }
         stage('Push dockerhub'){
             steps {
-                sh docker tag nginx:v1 xuankien547/nginx:v1
-                sh docker tag php:v1 xuankien547/php:v1
+                sh 'docker tag nginx:v1 xuankien547/nginx:v1'
+                sh 'docker tag php:v1 xuankien547/php:v1'
                 sh echo $dockerhub_PWS | docker login -u $dockerhub_USR --password-stdin
             }
         }

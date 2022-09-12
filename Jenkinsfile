@@ -21,7 +21,8 @@ pipeline{
             steps {
                 sh 'docker tag nginx:v1 xuankien547/nginx:v1'
                 sh 'docker tag php:v1 xuankien547/php:v1'
-                sh 'echo $dockerhub_PWS | docker login -u $dockerhub_USR --password-stdin'
+
+                sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
                 sh 'docker push xuankien547/nginx;v1'
                 sh 'docker push xuankien547/php:v1'
             }

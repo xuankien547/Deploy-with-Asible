@@ -10,9 +10,7 @@ pipeline{
             }
         }
         stage('Buid docker file'){
-            when{
-                branch "master"
-            }
+            
             steps {
                     sh 'docker build -f ./Dockerfile.nginx -t nginx:v1 .'
                     sh 'docker build -f ./Dockerfile.php -t php:v1 .'

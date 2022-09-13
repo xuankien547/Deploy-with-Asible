@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment {
-        dockerhub=credentials('dockerhub')
+        dockerhub=credentials('docker')
     }
     stages{
         stage('Clone'){   
@@ -22,7 +22,7 @@ pipeline{
                 sh 'docker tag nginx:v1 xuankien547/nginx:v1'
                 sh 'docker tag php:v1 xuankien547/php:v1'
 
-                sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
+                sh 'echo $docker_PSW | docker login -u $docker_USR --password-stdin'
                 sh 'docker push xuankien547/nginx:v1'
                 sh 'docker push xuankien547/php:v1'
             }
